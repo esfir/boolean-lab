@@ -14,10 +14,10 @@ export function App() {
   const [muted, setMuted] = useState(false);
   const click = () => audioManager.play('click');
   const toggleMute = () => { setMuted((m) => { audioManager.setEnabled(m); return !m; }); };
-  const toggleValue = (value: boolean) => {
+  const toggleValue = (value: boolean, solved: boolean) => {
     audioManager.play(value ? 'on' : 'off');
-    if (value === levels[levelIndex].targetValue) {
-      window.setTimeout(() => audioManager.play(levels[levelIndex].kind === 'enabled' ? 'laserOff' : 'success'), 180);
+    if (solved) {
+      audioManager.play(levels[levelIndex].kind === 'enabled' ? 'laserOff' : 'success');
     }
   };
   const next = () => { click(); if (levelIndex === levels.length - 1) { audioManager.play('finish'); setStage('finish'); } else setLevelIndex((i) => i + 1); };
