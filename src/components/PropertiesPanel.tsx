@@ -1,18 +1,17 @@
 import type { LevelData } from '../data/gameData';
+import { propertyNames, descriptions } from '../data/challenges';
+import type { PropertyName, PropertyValues } from '../data/challenges';
 
-export function PropertiesPanel({ level, value, solved, onToggle }: { level: LevelData; value: boolean; solved: boolean; onToggle: () => void }) {
-  return <aside className={`properties ${solved ? 'properties--solved' : ''}`}>
-    <div className="properties-title"><span>PROPERTIES</span><span className="window-dots">•••</span></div>
-    <div className="object-name"><span className="cube-icon">◇</span><div><small>OBJECT</small><strong>{level.objectName}</strong></div></div>
-    <div className="property-section">BEHAVIOR</div>
-    <button className="property-row" onClick={onToggle} aria-label={`${level.property}: ${value}`} aria-pressed={value}>
-      <span className="property-name">{level.property}</span>
-      <span className={`checkbox ${value ? 'checked' : ''}`}>{value ? '✓' : ''}</span>
-    </button>
-    <div className={`boolean-value ${value ? 'is-true' : 'is-false'}`}>
-      <span className="value-dot" />
-      <div><small>BOOLEAN VALUE</small><strong>{String(value)}</strong></div>
+export function PropertiesPanel({ level, values, solved, onToggle }: { level: LevelData; values: PropertyValues; solved: boolean; onToggle: (property: PropertyName) => void }) {
+  return <aside className={`properties properties--four ${solved ? 'properties--solved' : ''}`}>
+    <div className="properties-title"><span>НАСТРОЙ 4 СВОЙСТВА</span><span className="window-dots">•••</span></div>
+    <div className="object-name"><span className="cube-icon">◇</span><div><small>УЧЕБНАЯ МОДЕЛЬ УСТРОЙСТВА</small><strong>{level.objectName}</strong></div></div>
+    <div className="property-options" role="group" aria-label="Четыре свойства устройства">
+      {propertyNames.map(property => <button key={property} className="property-row" role="switch" aria-checked={values[property]} aria-label={`${property} — ${descriptions[property]}`} onClick={() => onToggle(property)}>
+        <span className="property-copy"><span className="property-name">{property}</span><small>{descriptions[property]}</small></span>
+        <span className="property-state"><span className={`checkbox ${values[property] ? 'checked' : ''}`}>{values[property] ? '✓' : ''}</span><span>{values[property] ? 'true · ВКЛ' : 'false · ВЫКЛ'}</span></span>
+      </button>)}
     </div>
-    <div className="toggle-tip">Нажми на checkbox<br/><b>☑ true</b>&nbsp;&nbsp; <b>□ false</b></div>
+    <div className="toggle-tip">Выбери, что включить, а что выключить.</div>
   </aside>;
 }
