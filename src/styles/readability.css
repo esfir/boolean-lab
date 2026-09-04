@@ -1,0 +1,146 @@
+/* Learning content stays readable: compact layouts reduce decoration, not text. */
+.screen { overflow-y: auto; }
+.eyebrow, .lesson .eyebrow, .finish-card .eyebrow, .start-copy .eyebrow {
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: .1em;
+}
+.lesson { padding: 24px 32px; }
+.lesson > p, .start-copy p, .finish-card > p {
+  font-size: 22px;
+  line-height: 1.45;
+  color: #d5e5ef;
+}
+.speech { font-size: 18px; line-height: 1.4; padding: 12px 16px; }
+.boolean-cards { gap: 12px; }
+.bool-card { padding: 14px; grid-template-columns: 42px 1fr; }
+.bool-card strong { font-size: 30px; }
+.bool-card small { font-size: 14px; line-height: 1.45; letter-spacing: 0; }
+.checkbox-explain {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
+  padding: 16px;
+}
+.checkbox-explain div { font-size: 24px; gap: 10px; }
+.checkbox-explain b { font-size: 30px; }
+.checkbox-explain p {
+  grid-column: 1 / -1;
+  max-width: none;
+  margin: 0;
+  color: #d5e5ef;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.primary-button, .lesson .primary-button, .start-copy .primary-button,
+.finish-card .primary-button, .primary-button.next, .hint-button {
+  min-height: 52px;
+  height: auto;
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: .03em;
+  padding: 12px 18px;
+}
+.mission-copy { height: auto; flex: 0 0 auto; padding: 12px 18px; }
+.mission-copy h2 { font-size: 22px; line-height: 1.35; margin: 5px 0 0; }
+.mission-copy span, .room-label span { font-size: 12px; letter-spacing: .08em; }
+.room-label b { font-size: 16px; }
+.room-label { max-width: 65%; }
+.properties-title { font-size: 14px; height: 40px; }
+.object-name { padding: 10px 16px; }
+.object-name strong { font-size: 20px; }
+.object-name small, .boolean-value small { font-size: 12px; color: #bed2e0; letter-spacing: .05em; }
+.property-section { font-size: 12px; color: #bed2e0; padding: 6px 16px; }
+.property-row { padding: 10px 16px; }
+.property-name { font-size: 22px; }
+.checkbox { width: 44px; height: 44px; font-size: 28px; flex-shrink: 0; }
+.boolean-value { padding: 8px 12px; margin: 10px 14px; }
+.boolean-value strong { font-size: 26px; }
+.toggle-tip { font-size: 16px; line-height: 1.4; color: #c7dce9; padding-bottom: 10px; }
+.toggle-tip b { color: #d5e5ef; }
+.feedback, .hint-card { padding: 12px; flex-shrink: 0; }
+.feedback p, .hint-card p { font-size: 18px; line-height: 1.4; color: #e0edf5; }
+.feedback.success p { color: #d3ffde; }
+.hint-card p { color: #fff0ba; }
+.action-row { flex-shrink: 0; }
+.game-layout { min-height: 560px; max-height: 760px; }
+.control-column { gap: 10px; }
+.properties { flex-shrink: 0; }
+.summary-grid b { font-size: 20px; }
+.summary-grid small { font-size: 12px; }
+.summary-grid > div { padding: 12px; gap: 3px 6px; }
+.master-formula { flex-wrap: wrap; gap: 10px; }
+.master-formula > span { font-size: 12px; }
+.master-formula > div { font-size: 22px; }
+.binary-pills span { font-size: 18px; }
+.medal span { font-size: 12px; }
+.tutorial-card { min-height: 610px; height: min(740px, 92svh); }
+
+@media (max-width: 760px) {
+  .game-layout {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    grid-template-rows: clamp(230px, 30svh, 300px) auto;
+    gap: 8px;
+    padding-bottom: 16px;
+  }
+  .control-column { padding: 0; gap: 10px; }
+  .properties { flex: none; }
+  .properties-title { height: 30px; }
+  .object-name { padding: 6px 14px; }
+  .property-section { padding: 3px 14px; }
+  .property-row { padding: 6px 14px; }
+  .boolean-value { margin: 6px 12px; padding: 5px 10px; }
+  .toggle-tip { padding-bottom: 6px; line-height: 1.3; }
+  .action-row { margin-top: 0; flex-wrap: wrap; }
+  .action-row { flex: 0 0 auto; }
+  .mission-copy h2 { font-size: 20px; }
+  .room-label { padding: 5px 8px; }
+  .room-label b { font-size: 14px; }
+  .room-label span { font-size: 11px; }
+  .properties-title { font-size: 14px; }
+  .object-name strong { font-size: 20px; }
+  .property-name { font-size: 22px; }
+  .checkbox { width: 44px; height: 44px; font-size: 28px; }
+  .boolean-value strong { font-size: 26px; }
+  .feedback p, .hint-card p { font-size: 18px; }
+  .topbar .icon-button { width: 44px; height: 44px; }
+  .tutorial-card {
+    position: relative;
+    top: auto;
+    margin: 10px;
+    height: auto;
+    min-height: 0;
+    grid-template-rows: clamp(155px, 23svh, 230px) auto;
+  }
+  .tutorial-hero .hero { height: 100%; }
+  .speech { font-size: 16px; max-width: 48%; padding: 8px 10px; }
+  .lesson { padding: 18px 20px; gap: 8px; }
+  .lesson h2 { font-size: 34px; line-height: 1.15; margin: 4px 0; }
+  .lesson > p { font-size: 20px; margin: 0 0 6px; }
+  .bool-card { padding: 12px; grid-template-columns: 36px 1fr; }
+  .bool-card > span { width: 28px; height: 28px; font-size: 20px; }
+  .bool-card strong { font-size: 28px; }
+  .bool-card small { font-size: 13px; }
+  .checkbox-explain { margin: 4px 0; padding: 14px; }
+  .checkbox-explain div { font-size: 24px; }
+  .checkbox-explain b { font-size: 30px; }
+  .checkbox-explain p { font-size: 20px; }
+  .start-copy { position: relative; top: auto; left: auto; right: auto; padding: 65px 20px 0; }
+  .start-copy p { font-size: 22px; }
+  .start-hero { position: relative; right: auto; bottom: auto; margin: auto; height: 42svh; }
+  .finish-screen { height: auto; min-height: 100svh; justify-content: flex-start; }
+  .finish-hero { height: 23svh; flex: 0 0 23svh; }
+  .finish-card { padding: 18px; }
+  .finish-card > p { font-size: 22px; }
+  .finish-card h1 { font-size: 34px; }
+  .summary-grid b { font-size: 18px; }
+  .summary-grid > div { padding: 10px 8px; }
+  .medal span { font-size: 10px; }
+}
+
+@media (max-width: 390px) {
+  .boolean-cards, .summary-grid { grid-template-columns: 1fr; }
+  .lesson { padding: 16px; }
+}
